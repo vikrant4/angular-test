@@ -1,0 +1,39 @@
+<div *ngIf="product">
+  <h1 class="display-4">{{product.name}}</h1>
+  <p class="lead">{{ product.description}}</p>
+  <div class="row">
+    <p style="float:right">Price: ${{product.price}}</p>
+    <div><span class="glyphicon glyphicon-map-marker"></span> {{product.suburb}}, {{product.state}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <h4>
+        <span class="glyphicon glyphicon-ok-circle" *ngIf="product.isDry" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-remove-circle" *ngIf="!product.isDry" aria-hidden="true"></span>
+        Dry Hire
+      </h4>
+    </div>
+    <div class="col-sm-3">
+      <h4>
+        <span class="glyphicon glyphicon-ok-circle" *ngIf="product.isDeliverable" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-remove-circle" *ngIf="!product.isDeliverable" aria-hidden="true"></span>
+        Delivery available
+      </h4>
+    </div>
+    <div class="col-sm-3">
+      <h4>
+        <span class="glyphicon glyphicon-ok-circle" *ngIf="product.isWet" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-remove-circle" *ngIf="!product.isWet" aria-hidden="true"></span>
+        Wet Hire
+      </h4>
+    </div>
+    <div class="col-sm-3">
+      <h4>
+        <span class="glyphicon glyphicon-ok-circle" *ngIf="product.isPickup" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-remove-circle" *ngIf="!product.isPickup" aria-hidden="true"></span>
+        Pickup available
+      </h4>
+    </div>
+  </div>
+  <img class="img-detail img-thumbnail" src="{{product.image}}">
+</div>

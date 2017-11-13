@@ -1,0 +1,15 @@
+.img-detail{
+  width: 100%
+}
+
+.glyphicon.glyphicon-ok-circle{
+  color: green;
+}
+
+.glyphicon.glyphicon-remove-circle{
+  color: red;
+}
+
+.glyphicon.glyphicon-map-marker{
+  color: green;
+}

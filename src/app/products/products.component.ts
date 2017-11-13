@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
-import { PRODUCTS } from '../mockProducts';
 import { Product } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-products',
@@ -10,23 +10,24 @@ import { Product } from '../product';
 })
 export class ProductsComponent implements OnInit {
 
-  @Input() search: string;
+  search: string = '';
 
-  products = PRODUCTS;
+  products: Product[];
 
-  selectedProduct: Product;
-
-  onSelect(prod: Product): void{
-    //TODO Open image for that product
-    this.selectedProduct = prod;
-    console.log("Search: ", this.search);
-    console.log("Name: ", prod.name);
-    console.log(prod.name.match(this.search));
+  clear(){
+    this.search = '';
   }
 
-  constructor() { }
+  constructor(private productService: ProductService) {
+    this.search = '';
+  }
+
+  getProducts(): void{
+    this.products = this.productService.getProducts();
+  }
 
   ngOnInit() {
+    this.getProducts();
   }
 
 }
