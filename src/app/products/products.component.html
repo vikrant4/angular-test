@@ -1,0 +1,46 @@
+<h1>List of products</h1>
+<ul class="list-group">
+  <div *ngFor="let product of products" (click)="onSelect(product)">
+    <li *ngIf="(search.length > 0 && (product.name.toUpperCase().match(search.toUpperCase()) != null)) || search.length == 0" class="list-group-item">
+      <div class="row">
+        <img class="img-thumbnail icon" src="{{product.image}}">
+        <div class="col-sm-8">
+          <h2> {{product.name | uppercase}} </h2>
+          <small class="text-muted">{{ product.description}}</small>
+          <p>Price: ${{product.price}}</p>
+          <div class="row">
+            <div class="col-sm-6">
+              <h4>
+                <span class="glyphicon glyphicon-ok-circle" *ngIf="product.isDry" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-remove-circle" *ngIf="!product.isDry" aria-hidden="true"></span>
+                Dry Hire
+              </h4>
+            </div>
+            <div class="col-sm-6">
+              <h4>
+                <span class="glyphicon glyphicon-ok-circle" *ngIf="product.isDeliverable" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-remove-circle" *ngIf="!product.isDeliverable" aria-hidden="true"></span>
+                Delivery available
+              </h4>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-sm-6">
+              <h4>
+                <span class="glyphicon glyphicon-ok-circle" *ngIf="product.isWet" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-remove-circle" *ngIf="!product.isWet" aria-hidden="true"></span>
+                Wet Hire
+              </h4>
+            </div>
+            <div class="col-sm-6">
+              <h4>
+                <span class="glyphicon glyphicon-ok-circle" *ngIf="product.isPickup" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-remove-circle" *ngIf="!product.isPickup" aria-hidden="true"></span>
+                Pickup available
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </div>
+</ul>

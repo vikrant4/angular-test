@@ -1,0 +1,18 @@
+.list-group-item:hover{
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
+.list-group-item .icon{
+  float: left;
+  height: 125px;
+  width: 125px;
+}
+
+.glyphicon.glyphicon-ok-circle{
+  color: green;
+}
+
+.glyphicon.glyphicon-remove-circle{
+  color: red;
+}
